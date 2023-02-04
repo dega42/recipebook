@@ -1,0 +1,26 @@
+[
+  {
+    "id": "recipe-0",
+    "name": "Recipename",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam elit non sem rhoncus imperdiet. Cras nec risus ornare, blandit mi in, sagittis turpis.",
+    "directions": ["Wash the fish pieces and pat dry with kitchen towel.", "Add the fish pieces in a bowl. Add salt, turmeric powder, some chilli powder, mix well and set  for few mins."],
+    "ingredients": ["500 gms sardine fish cubed", "1 tsp turmeric powder"],
+    "times": 2
+  },
+  {
+    "id": "recipe-1",
+    "name": "Rántott hús",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "directions": ["Now heat the oil in a frying pan. Drop the fiah and fry the fish until it is crispy on the outside. Drain and set aside", "Add in the whole garlic, Kashmiri chilli powder and saute for a min."],
+    "ingredients": ["3 tbsp Kashmiri chilli powder", "1 tsp salt (adjust to taste)", "só", "bors"],
+    "times": 1
+  },
+  {
+    "id": "recipe-2",
+    "name": "Bableves",
+    "description": "Sokat.",
+    "directions": ["Vízben bab", "szeletelni.", "főzni", "sütni"],
+    "ingredients": ["répa", "kolbász", "só", "bors"],
+    "times": 5
+  }
+]

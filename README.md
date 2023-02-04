@@ -1,1 +1,1 @@
-# recipebook
+Recipebook app with React client and Node.js (Express) server.
