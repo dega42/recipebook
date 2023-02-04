@@ -129,7 +129,6 @@ function RecipeEditForm() {
                     <div className="form-group">
                         <input
                             type="text"
-                            id="recipeIngredient"
                             ref={ingredientRef}
                         />
                         <button className="btn" onClick={addIngredient}>Add ingredient</button>
@@ -137,7 +136,7 @@ function RecipeEditForm() {
                     <ul role='list'>
                         {ingredientList}
                     </ul>
-                    <button className="btn btn-primary">Add recipe</button>
+                    <button type="submit" className='btn'>Save recipe</button>
                     <button className="btn">Cancel</button>
                 </form>
             </div>

@@ -39,7 +39,7 @@ function RecipeList() {
     return (
         <div className="container">
             <div className="main-header">
-                <h1>Reciple list</h1>
+                <h1>Recipe list</h1>
                 {error}
                 <nav>
                     <ul role='list' className="nav">

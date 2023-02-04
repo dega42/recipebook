@@ -109,7 +109,6 @@ function RecipeNewForm() {
                     <div className="form-group">
                         <input
                             type="text"
-                            id="recipeIngredient"
                             ref={ingredientRef}
                         />
                         <button className="btn" onClick={addIngredient}>Add ingredient</button>
@@ -118,9 +117,7 @@ function RecipeNewForm() {
                     <ul role={'list'}>
                         {ingredientList}
                     </ul>                    
-                    {/* <input type="submit" className='btn' value='Add recipe' /> */}
-                    <button type="submit">Submit</button>
-                    {/* <button type='button'>Add</button> */}
+                    <button type="submit" className='btn'>Add recipe</button>
                     <button className="btn"  >Cancel</button>
                 </form>
             </div>
