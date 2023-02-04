@@ -58,13 +58,15 @@ function RecipeEditForm() {
     }
 
 
-    function addDirection() {
+    function addDirection(e) {
+        e.preventDefault();
         if (!directionRef.current.value) return
         setInputs({ ...inputs, directions: inputs.directions.concat(directionRef.current.value) })
         directionRef.current.value = '';
 
     }
-    function addIngredient() {
+    function addIngredient(e) {
+        e.preventDefault();
         if (!ingredientRef.current.value) return
         setInputs({ ...inputs, ingredients: inputs.ingredients.concat(ingredientRef.current.value) })
         ingredientRef.current.value = '';

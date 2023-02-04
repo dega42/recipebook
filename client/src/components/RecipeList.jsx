@@ -16,12 +16,13 @@ function RecipeList() {
                 setRecipes(response);
                 setError(null);
             })
-            .catch(setError);
+            .catch((error) => {
+                setError('There has been a problem with your fetch operation:', error);
+            });
 
     }, []);
-
-
-    const recipeList = recipes.map((recipe) => (
+    
+    const recipeList = recipes && !recipes.error ? recipes.map((recipe) => (
         <RecipeListView
             id={recipe.id}
             key={recipe.id}
@@ -32,12 +33,14 @@ function RecipeList() {
             ingerdients={recipe.ingredients}
             times={recipe.times}
         />
-    ))
-
+        
+    )) : [recipes.error]
+    
     return (
         <div className="container">
             <div className="main-header">
                 <h1>Reciple list</h1>
+                {error}
                 <nav>
                     <ul role='list' className="nav">
                         <li><Link to="/new-recipe" className="btn">New recipe</Link></li>

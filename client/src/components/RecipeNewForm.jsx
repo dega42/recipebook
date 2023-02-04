@@ -5,7 +5,7 @@ import DirectionList from './DirectionList';
 import IngredientList from './IngredientList';
 
 
-function RecipeNewForm(props) {
+function RecipeNewForm() {
 
     const [inputs, setInputs] = useState({ name: '', description: '', directions: [], ingredients: [] });
     const [error, setError] = useState(null);
@@ -14,17 +14,12 @@ function RecipeNewForm(props) {
     const directionRef = useRef(null);
     const ingredientRef = useRef(null);
 
-    async function handleSubmit(e) {
+     async function handleSubmit(e) {
         e.preventDefault();
 
-        // if (!inputs.recipeName.trim()) {
-        //     console.log('error');
-        // }
-        if (!inputs) return
-        console.log(inputs);
+        if (!inputs.name) return
 
         inputs.slug = slugify(inputs.name);
-        console.log('DATA', inputs);
 
         const update = await fetch(`http://localhost:3000/api/v1/recipe`, {
             method: 'post',
@@ -43,13 +38,15 @@ function RecipeNewForm(props) {
         setInputs(values => ({ ...values, [name]: value }))
     }
 
-    function addDirection() {
+    function addDirection(e) {
+        e.preventDefault();
         if (!directionRef.current.value) return
         setInputs({ ...inputs, directions: inputs.directions.concat(directionRef.current.value) })
         directionRef.current.value = '';
 
     }
-    function addIngredient() {
+    function addIngredient(e) {
+        e.preventDefault();
         if (!ingredientRef.current.value) return
         setInputs({ ...inputs, ingredients: inputs.ingredients.concat(ingredientRef.current.value) })
         ingredientRef.current.value = '';
@@ -87,16 +84,16 @@ function RecipeNewForm(props) {
                     <input
                         type='text'
                         name='name'
-                        value={inputs.name}
-                        //defaultValue={inputs.name}
+                        //value={inputs.name}
+                        defaultValue={inputs.name}
                         onChange={handleChange}
                     />
                     <textarea
                         name='description'
                         cols="30"
                         rows="3"
-                        value={inputs.description}
-                        //defaultValue={inputs.description}
+                        //value={inputs.description}
+                        defaultValue={inputs.description}
                         onChange={handleChange} />
 
                     <div className="form-group">
@@ -120,9 +117,11 @@ function RecipeNewForm(props) {
 
                     <ul role={'list'}>
                         {ingredientList}
-                    </ul>
-                    <button className="btn btn-primary">Add recipe</button>
-                    <button className="btn">Cancel</button>
+                    </ul>                    
+                    {/* <input type="submit" className='btn' value='Add recipe' /> */}
+                    <button type="submit">Submit</button>
+                    {/* <button type='button'>Add</button> */}
+                    <button className="btn"  >Cancel</button>
                 </form>
             </div>
         </div>
