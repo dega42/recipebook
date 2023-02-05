@@ -64,13 +64,13 @@ function RecipeView() {
                 <h2>{recipe.name} ({recipe.times})</h2>
                 <h3>Description:</h3>
                 <p>{recipe.description}</p>
-                <h3>Directions:</h3>
-                <ul role='list'>
-                    {directionChecklist}
-                </ul>
                 <h3>Ingredients:</h3>
                 <ul role='list'>
                     {ingredientChecklist}
+                </ul>
+                <h3>Directions:</h3>
+                <ul role='list'>
+                    {directionChecklist}
                 </ul>
                 <button className="btn" onClick={addTimes}>I made it</button>
             </div>

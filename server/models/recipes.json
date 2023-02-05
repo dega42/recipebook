@@ -2,7 +2,7 @@
   {
     "id": "e0e13c01-38c1-4df7-8484-242080072102",
     "name": "Palacsinta",
-    "slug": "Palacsinta",
+    "slug": "palacsinta",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam elit non sem rhoncus imperdiet. Cras nec risus ornare, blandit mi in, sagittis turpis.",
     "directions": [
       "Egy tálba ütjük a tojásokat, majd a cukrokkal együtt kikeverjük.",
@@ -18,7 +18,7 @@
       "2.5 dl szódavíz",
       "0.5 dl napraforgó olaj"
     ],
-    "times": 17
+    "times": 18
   },
   {
     "id": "69a786ef-6fc1-46df-99c4-8fc7261fa7bf",
@@ -73,11 +73,28 @@
     "times": 7
   },
   {
-    "id": "8df46b97-135b-405f-90a4-7136bd7fb7b3",
-    "name": "asdasd",
-    "slug": "asdasd",
+    "id": "994501c0-eab7-4c5a-a250-24d6849e95a8",
+    "name": "Bundás kenyér",
+    "slug": "bundas-kenyer",
     "description": "",
-    "directions": [],
+    "directions": [
+      "megsütjük"
+    ],
+    "ingredients": [
+      "tojás",
+      "kenyér"
+    ],
+    "times": 0
+  },
+  {
+    "id": "d3db4004-f277-41d9-b62c-2ce4d503e86b",
+    "name": "Bableves",
+    "slug": "bableves",
+    "description": "",
+    "directions": [
+      "bab",
+      "asd"
+    ],
     "ingredients": [],
     "times": 0
   }

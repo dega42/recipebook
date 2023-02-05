@@ -106,9 +106,8 @@ exports.edit = function (req, res) {
 			const parsedData = JSON.parse(recipes);
 			for (const [key, value] of Object.entries(parsedData)) {
 				if (value.id === req.params.id) {
-
 					value.name = req.body.name,
-						value.slug = slugify(req.body.name),
+						value.slug = slugify(req.body.name, { lower: true, trim: true }),
 						value.description = req.body.description,
 						value.directions = req.body.directions,
 						value.ingredients = req.body.ingredients
@@ -170,9 +169,9 @@ exports.delete = function (req, res) {
 			const parsedData = JSON.parse(recipes);
 
 			const foundIndex = parsedData.findIndex((value, index) => value.id == req.params.id)
-				console.log(foundIndex);
+			console.log(foundIndex);
 
-				parsedData.splice(foundIndex,1)
+			parsedData.splice(foundIndex, 1)
 			// for (const [key, value] of Object.entries(parsedData)) {
 			// 	if (value.id === req.params.id) {
 

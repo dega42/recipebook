@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import slugify from 'react-slugify';
 import DirectionList from './DirectionList';
 import IngredientList from './IngredientList';
 
@@ -18,8 +17,6 @@ function RecipeNewForm() {
         e.preventDefault();
 
         if (!inputs.name.trim()) return
-
-        inputs.slug = slugify(inputs.name);
 
         const update = await fetch(`http://localhost:3000/api/v1/recipe`, {
             method: 'post',
