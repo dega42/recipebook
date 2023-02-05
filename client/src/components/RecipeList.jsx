@@ -3,36 +3,41 @@ import { Link } from 'react-router-dom';
 
 import RecipeListView from "./RecipeListView";
 
-
 function RecipeList() {
 
     const [recipes, setRecipes] = useState([]);
     const [error, setError] = useState(null);
 
+    
+
     useEffect(() => {
-        fetch("http://localhost:3000/api/v1/recipe")
-            .then((response) => response.json())
-            .then((response) => {
-                setRecipes(response);
-                setError(null);
-            })
-            .catch((error) => {
-                setError('There has been a problem with your fetch operation:', error);
-            });
+
+        const fetchRecipe = async () => {
+            const fetchData = await fetch("http://localhost:3000/api/v1/recipe");
+            const recipes = await fetchData.json();
+            setRecipes(recipes)
+        }
+        fetchRecipe()
+            .catch((error) => setError('There has been a problem with your fetch operation: ', error))
 
     }, []);
+
+
+    
 
     return (
         <div className="container">
             <div className="main-header">
                 <h1>Recipe list</h1>
-                {error}
+                {/* {message} */}
                 <nav>
                     <ul role='list' className="nav">
+                        <li><Link to="/new-recipe" className="btn">New category</Link></li>
                         <li><Link to="/new-recipe" className="btn">New recipe</Link></li>
                     </ul>
                 </nav>
             </div>
+            <form><input /> search</form>
             <div className="wrapper">
                 <ul role='list'>
                     {recipes.map((recipe) => (

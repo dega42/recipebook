@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import MessageContext from './MessageContext'
 import DirectionList from './DirectionList';
 import IngredientList from './IngredientList';
 
 
 function RecipeEditForm() {
+
+    const { state, dispatch } = useContext(MessageContext)
 
     const [inputs, setInputs] = useState({});
     const [error, setError] = useState(null);
@@ -39,6 +42,7 @@ function RecipeEditForm() {
 
         if (update.ok) {
             console.log('Saved')
+            dispatch({ message: 'SAVED' });
         }
     }
 
@@ -113,14 +117,14 @@ function RecipeEditForm() {
     return (
         <div className='container'>
             <div className="main-header">
-                <h1>Edit recipe</h1>                
+                <h1>Edit recipe</h1>
                 <nav>
                     <ul role='list' className="nav">
                         <li><Link to="/" className="btn">Recipe list</Link></li>
                     </ul>
                 </nav>
             </div>
-            
+
             <div className="wrapper">
                 <form className="new-recipe-form" onSubmit={handleSubmit}>
                     <input

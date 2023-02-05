@@ -124,11 +124,9 @@ textarea {
   resize: vertical;
 }
 
-input {
+input, textarea {
   outline: none;
-
 }
-
 
 hr {
   border: none;
@@ -264,4 +262,11 @@ input[type="checkbox"]:checked {
   align-items: start;
   gap: .8rem;
   margin: .8rem 0;
+}
+
+.alert {
+  background-color: var(--color-warning);
+  padding: .4rem 1rem;
+  border-radius: .4rem;
+  
 }
