@@ -137,6 +137,9 @@ hr {
 .btn-primary {
   background-color: var(--color-primary);
 }
+.btn-danger {
+  background-color: var(--color-warning);
+}
 
 .btn-group {
   display: flex;

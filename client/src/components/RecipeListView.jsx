@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 
 function RecipeListView(props) {
+    const { id, name, slug, times, description } = props;
     return (
         <li>
             <div className='list-heading'>
-                <h2>{props.name} ({props.times})</h2>
+                <h2>{name} ({times})</h2>
                 <div className="btn-group">
-                    <Link to={'/' + props.slug} className="btn" id={props.id}>View</Link>
-                    <Link to={'/' + props.slug + '/edit'} className="btn" id={props.id}>Edit</Link>
+                    <Link to={'/' + slug} className="btn" id={id}>View</Link>
+                    <Link to={'/' + slug + '/edit'} className="btn" id={id}>Edit</Link>
                 </div>
             </div>
-            <span>{props.description}</span>
+            <span>{description}</span>
         </li>
     )
 }

@@ -57,12 +57,25 @@ function RecipeEditForm() {
         setInputs(values => ({ ...values, [name]: value }))
     }
 
+    function deleteRecipe(e) {
+        e.preventDefault();
+        console.log('DELETE')
+    }
 
     function addDirection(e) {
         e.preventDefault();
         if (!directionRef.current.value) return
         setInputs({ ...inputs, directions: inputs.directions.concat(directionRef.current.value) })
         directionRef.current.value = '';
+    }
+
+    function removeDirection(e) {
+        e.preventDefault();
+        const id = e.currentTarget.dataset.id;
+        const foundIndex = inputs.directions.findIndex((value, index) => index == id)
+        const list = [...inputs.directions]
+        list.splice(foundIndex, 1)
+        setInputs({ ...inputs, directions: list })
 
     }
     function addIngredient(e) {
@@ -72,10 +85,20 @@ function RecipeEditForm() {
         ingredientRef.current.value = '';
     }
 
+    function removeIngredient(e) {
+        e.preventDefault();
+        const id = e.currentTarget.dataset.id;
+        const foundIndex = inputs.ingredients.findIndex((value, index) => index == id)
+        const list = [...inputs.ingredients]
+        list.splice(foundIndex, 1)
+        setInputs({ ...inputs, ingredients: list })
+
+    }
     //console.log('TRUE OR FALSE:',typeof inputs === 'object' && inputs !== null && !Object.keys(inputs).length ? false :  !!inputs)
     const directionList = inputs && inputs.directions ? inputs.directions.map((value, index) => (
         <DirectionList
-
+            removeDirection={removeDirection}
+            id={index}
             key={index}
             name={value}
         />
@@ -83,7 +106,8 @@ function RecipeEditForm() {
 
     const ingredientList = inputs && inputs.ingredients ? inputs.ingredients.map((value, index) => (
         <IngredientList
-
+            removeIngredient={removeIngredient}
+            id={index}
             key={index}
             name={value}
         />
@@ -137,6 +161,7 @@ function RecipeEditForm() {
                         {ingredientList}
                     </ul>
                     <button type="submit" className='btn'>Save recipe</button>
+                    <button className='btn btn-danger' onClick={deleteRecipe}>Delete recipe</button>
                     <button className="btn">Cancel</button>
                 </form>
             </div>

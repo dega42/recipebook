@@ -108,7 +108,7 @@ exports.edit = function (req, res) {
 				if (value.id === req.params.id) {
 
 					value.name = req.body.name,
-						value.slug = req.body.name,
+						value.slug = slugify(req.body.name),
 						value.description = req.body.description,
 						value.directions = req.body.directions,
 						value.ingredients = req.body.ingredients

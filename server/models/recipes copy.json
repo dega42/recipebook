@@ -75,11 +75,11 @@
   {
     "id": "4415f8b9-f1f5-4fa6-9279-ef422a3e19d1",
     "name": "Bundás kenyér",
-    "slug": "Bundas-kenyer",
+    "slug": "Bundás kenyér",
     "description": "kenyér",
     "directions": [
       "megsütjük",
-      "haramdad"
+      "asd"
     ],
     "ingredients": [
       "tojás",

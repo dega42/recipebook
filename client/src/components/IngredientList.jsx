@@ -5,7 +5,7 @@ function IngredientList(props) {
     return (
         <li>
             <div className="item-group" >
-                <button className='btn'><FontAwesomeIcon icon={faTrash} /></button>
+                <button className='btn' onClick={props.removeIngredient} data-id={props.id}><FontAwesomeIcon icon={faTrash} /></button>
                 {props.name}
             </div>
         </li>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+
 import RecipeListView from "./RecipeListView";
 
 
@@ -21,21 +21,7 @@ function RecipeList() {
             });
 
     }, []);
-    
-    const recipeList = recipes && !recipes.error ? recipes.map((recipe) => (
-        <RecipeListView
-            id={recipe.id}
-            key={recipe.id}
-            name={recipe.name}
-            slug={recipe.slug}
-            description={recipe.description}
-            directions={recipe.directions}
-            ingerdients={recipe.ingredients}
-            times={recipe.times}
-        />
-        
-    )) : [recipes.error]
-    
+
     return (
         <div className="container">
             <div className="main-header">
@@ -49,7 +35,17 @@ function RecipeList() {
             </div>
             <div className="wrapper">
                 <ul role='list'>
-                    {recipeList}
+                    {recipes.map((recipe) => (
+                        <RecipeListView
+                            id={recipe.id}
+                            key={recipe.id}
+                            name={recipe.name}
+                            slug={recipe.slug}
+                            description={recipe.description}
+                            times={recipe.times}
+                        />
+
+                    ))}
                 </ul>
             </div>
         </div>
