@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import DirectionList from './DirectionList';
 import IngredientList from './IngredientList';
 
@@ -8,7 +8,8 @@ function RecipeEditForm() {
 
     const [inputs, setInputs] = useState({});
     const [error, setError] = useState(null);
-    const [message, setMessage] = useState();
+
+    const navigate = useNavigate();
 
     const directionRef = useRef(null);
     const ingredientRef = useRef(null);
@@ -37,7 +38,7 @@ function RecipeEditForm() {
         })
 
         if (update.ok) {
-            setMessage('Saved')
+            console.log('Saved')
         }
     }
 
@@ -112,16 +113,14 @@ function RecipeEditForm() {
     return (
         <div className='container'>
             <div className="main-header">
-                <h1>Edit recipe</h1>
-                {message}
-
+                <h1>Edit recipe</h1>                
                 <nav>
                     <ul role='list' className="nav">
                         <li><Link to="/" className="btn">Recipe list</Link></li>
                     </ul>
                 </nav>
-
             </div>
+            
             <div className="wrapper">
                 <form className="new-recipe-form" onSubmit={handleSubmit}>
                     <input
@@ -160,7 +159,7 @@ function RecipeEditForm() {
                     </ul>
                     <button type="submit" className='btn'>Save recipe</button>
                     <button className='btn btn-danger' onClick={deleteRecipe}>Delete recipe</button>
-                    <button className="btn">Cancel</button>
+                    <button className="btn" onClick={() => navigate("/")}>Cancel</button>
                 </form>
             </div>
         </div>

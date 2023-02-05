@@ -191,13 +191,17 @@ hr {
 .item-list {
   display: grid;
   gap: 1rem;
-  align-items: start;
+  align-items: center;
+  
 }
+
 .item-list-direction {
   grid-template-columns: 2rem 2rem 1fr;
+  margin: .8rem 0;
 }
 .item-list-ingredient {
   grid-template-columns: 2rem 1fr;
+  margin: .4rem 0;
 }
 
 

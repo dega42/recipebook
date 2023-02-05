@@ -115,7 +115,7 @@ function RecipeNewForm() {
                         {ingredientList}
                     </ul>                    
                     <button type="submit" className='btn'>Add recipe</button>
-                    <button className="btn"  >Cancel</button>
+                    <button className="btn" onClick={() => navigate('/')}  >Cancel</button>
                 </form>
             </div>
         </div>

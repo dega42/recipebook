@@ -48,7 +48,7 @@
       "1 púpozott ek finomliszt",
       "2 l víz"
     ],
-    "times": 6
+    "times": 8
   },
   {
     "id": "e0e12c01-48c1-7uf7-8484-242080072104",
@@ -84,18 +84,6 @@
       "tojás",
       "kenyér"
     ],
-    "times": 0
-  },
-  {
-    "id": "d3db4004-f277-41d9-b62c-2ce4d503e86b",
-    "name": "Bableves",
-    "slug": "bableves",
-    "description": "",
-    "directions": [
-      "bab",
-      "asd"
-    ],
-    "ingredients": [],
     "times": 0
   }
 ]
