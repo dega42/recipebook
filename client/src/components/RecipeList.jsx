@@ -44,7 +44,6 @@ function RecipeList() {
                             description={recipe.description}
                             times={recipe.times}
                         />
-
                     ))}
                 </ul>
             </div>

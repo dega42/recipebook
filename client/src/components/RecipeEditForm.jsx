@@ -9,6 +9,7 @@ function RecipeEditForm() {
 
     const [inputs, setInputs] = useState({});
     const [error, setError] = useState(null);
+    const [message, setMessage] = useState();
 
     const directionRef = useRef(null);
     const ingredientRef = useRef(null);
@@ -26,17 +27,12 @@ function RecipeEditForm() {
 
     }, []);
 
-
     async function handleSubmit(e) {
         e.preventDefault();
-
-        // if (!inputs.recipeName.trim()) {
-        //     console.log('error');
-        // }
         if (!inputs.name.trim()) return
-        
+
         inputs.slug = slugify(inputs.name);
-        
+
         const update = await fetch(`http://localhost:3000/api/v1/recipe/${inputs.id}`, {
             method: 'put',
             headers: { "Content-Type": "application/json" },
@@ -44,10 +40,8 @@ function RecipeEditForm() {
         })
 
         if (update.ok) {
-            console.log('OK');
-            //navigate("/");
+            setMessage('Saved')
         }
-        //setInputs({});
     }
 
     function handleChange(e) {
@@ -58,16 +52,13 @@ function RecipeEditForm() {
 
     async function deleteRecipe(e) {
         e.preventDefault();
-        console.log('DELETE', inputs.id)
-
         const response = await fetch(`http://localhost:3000/api/v1/recipe/${inputs.id}`, {
             method: 'delete',
             headers: { "Content-Type": "application/json" }
         })
-        console.log(response);
+
         if (response.ok) {
-            console.log('OK');
-            //navigate("/");
+            navigate("/");
         }
     }
 
@@ -85,8 +76,8 @@ function RecipeEditForm() {
         const list = [...inputs.directions]
         list.splice(foundIndex, 1)
         setInputs({ ...inputs, directions: list })
-
     }
+
     function addIngredient(e) {
         e.preventDefault();
         if (!ingredientRef.current.value) return
@@ -101,9 +92,8 @@ function RecipeEditForm() {
         const list = [...inputs.ingredients]
         list.splice(foundIndex, 1)
         setInputs({ ...inputs, ingredients: list })
-
     }
-    //console.log('TRUE OR FALSE:',typeof inputs === 'object' && inputs !== null && !Object.keys(inputs).length ? false :  !!inputs)
+
     const directionList = inputs && inputs.directions ? inputs.directions.map((value, index) => (
         <DirectionList
             removeDirection={removeDirection}
@@ -126,6 +116,8 @@ function RecipeEditForm() {
         <div className='container'>
             <div className="main-header">
                 <h1>Edit recipe</h1>
+                {message}
+
                 <nav>
                     <ul role='list' className="nav">
                         <li><Link to="/" className="btn">Recipe list</Link></li>
@@ -138,16 +130,16 @@ function RecipeEditForm() {
                     <input
                         type='text'
                         name='name'
-                        value={inputs.name}
-                        //defaultValue={inputs.name}
+                        //value={inputs.name}
+                        defaultValue={inputs.name}
                         onChange={handleChange}
                     />
                     <textarea
                         name='description'
                         cols="30"
                         rows="3"
-                        value={inputs.description}
-                        //defaultValue={inputs.description}
+                        //value={inputs.description}
+                        defaultValue={inputs.description}
                         onChange={handleChange} />
                     <div className="form-group">
                         <input

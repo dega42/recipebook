@@ -8,6 +8,15 @@ import Recipe from './components/RecipeView';
 
 function App() {
 
+  // function message(text) {
+  //   //messageDialog.showModal();
+  //   console.log('message')
+  //   setTimeout(() => {
+  //     console.log('message close')
+  //     //messageDialog.close();
+  //   }, 3000);
+  // }
+
   return (
     <>
       <BrowserRouter>

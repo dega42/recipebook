@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faSort } from '@fortawesome/free-solid-svg-icons'
 
-
 function DirectionList(props) {
     return (
         <li>
