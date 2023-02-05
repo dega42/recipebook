@@ -18,7 +18,7 @@
       "2.5 dl szódavíz",
       "0.5 dl napraforgó olaj"
     ],
-    "times": 16
+    "times": 17
   },
   {
     "id": "69a786ef-6fc1-46df-99c4-8fc7261fa7bf",
@@ -71,20 +71,5 @@
       "2 ek napraforgó olaj"
     ],
     "times": 7
-  },
-  {
-    "id": "4415f8b9-f1f5-4fa6-9279-ef422a3e19d1",
-    "name": "Bundás kenyér",
-    "slug": "Bundas-kenyer",
-    "description": "kenyér",
-    "directions": [
-      "megsütjük",
-      "haramdad"
-    ],
-    "ingredients": [
-      "tojás",
-      "kenyér"
-    ],
-    "times": 0
   }
 ]

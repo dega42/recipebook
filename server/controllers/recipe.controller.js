@@ -161,6 +161,36 @@ exports.updateTimes = function (req, res) {
 	});
 };
 exports.delete = function (req, res) {
-	console.log(req.params.id);
-	res.send('Delete recipe')
+	readFile(data, "utf8", (err, recipes) => {
+		if (err) {
+			console.log("Error reading the JSON file:", err);
+			return;
+		}
+		try {
+			const parsedData = JSON.parse(recipes);
+
+			const foundIndex = parsedData.findIndex((value, index) => value.id == req.params.id)
+				console.log(foundIndex);
+
+				parsedData.splice(foundIndex,1)
+			// for (const [key, value] of Object.entries(parsedData)) {
+			// 	if (value.id === req.params.id) {
+
+			// 		value.times++
+			// 	}
+			// }
+			writeFile(data, JSON.stringify(parsedData, null, 2), (err) => {
+				if (err) {
+					console.log("Failed to write updated data to file");
+					return;
+				}
+				console.log("Recipe deleted");
+				res.send('Recipe deleted')
+			});
+			//res.send({'Update times':'asd'})
+
+		} catch (err) {
+			console.log("Error parsing JSON string:", err);
+		}
+	});
 };

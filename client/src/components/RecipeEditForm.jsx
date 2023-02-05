@@ -33,11 +33,10 @@ function RecipeEditForm() {
         // if (!inputs.recipeName.trim()) {
         //     console.log('error');
         // }
-        if (!inputs) return
-        console.log(inputs);
-
+        if (!inputs.name.trim()) return
+        
         inputs.slug = slugify(inputs.name);
-        console.log('DATA', inputs);
+        
         const update = await fetch(`http://localhost:3000/api/v1/recipe/${inputs.id}`, {
             method: 'put',
             headers: { "Content-Type": "application/json" },
@@ -57,9 +56,19 @@ function RecipeEditForm() {
         setInputs(values => ({ ...values, [name]: value }))
     }
 
-    function deleteRecipe(e) {
+    async function deleteRecipe(e) {
         e.preventDefault();
-        console.log('DELETE')
+        console.log('DELETE', inputs.id)
+
+        const response = await fetch(`http://localhost:3000/api/v1/recipe/${inputs.id}`, {
+            method: 'delete',
+            headers: { "Content-Type": "application/json" }
+        })
+        console.log(response);
+        if (response.ok) {
+            console.log('OK');
+            //navigate("/");
+        }
     }
 
     function addDirection(e) {
@@ -129,8 +138,8 @@ function RecipeEditForm() {
                     <input
                         type='text'
                         name='name'
-                        //value={inputs.name}
-                        defaultValue={inputs.name}
+                        value={inputs.name}
+                        //defaultValue={inputs.name}
                         onChange={handleChange}
                     />
                     <textarea

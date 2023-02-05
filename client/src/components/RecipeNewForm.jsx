@@ -17,7 +17,7 @@ function RecipeNewForm() {
      async function handleSubmit(e) {
         e.preventDefault();
 
-        if (!inputs.name) return
+        if (!inputs.name.trim()) return
 
         inputs.slug = slugify(inputs.name);
 
@@ -84,16 +84,16 @@ function RecipeNewForm() {
                     <input
                         type='text'
                         name='name'
-                        //value={inputs.name}
-                        defaultValue={inputs.name}
+                        value={inputs.name}
+                        //defaultValue={inputs.name}
                         onChange={handleChange}
                     />
                     <textarea
                         name='description'
                         cols="30"
                         rows="3"
-                        //value={inputs.description}
-                        defaultValue={inputs.description}
+                        value={inputs.description}
+                        //defaultValue={inputs.description}
                         onChange={handleChange} />
 
                     <div className="form-group">
