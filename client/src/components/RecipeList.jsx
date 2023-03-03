@@ -6,10 +6,8 @@ import RecipeListView from "./RecipeListView";
 function RecipeList() {
 
     const [recipes, setRecipes] = useState([]);
-    const [foundRecipes, setFoundRecipes] = useState([]);
+    const [foundRecipes, setFoundRecipes] = useState(recipes);
     const [error, setError] = useState(null);
-
-    
 
     useEffect(() => {
 
@@ -17,32 +15,24 @@ function RecipeList() {
             const fetchData = await fetch("http://localhost:3000/api/v1/recipe");
             const recipes = await fetchData.json();
             setRecipes(recipes)
+            setFoundRecipes(recipes)
         }
         fetchRecipe()
             .catch((error) => setError('There has been a problem with your fetch operation: ', error))
 
     }, []);
 
-    const search = (e) => {
+    const filterBySearch = (e) => {
         e.preventDefault()
-        
         const findThis = e.target.value;
-        if (findThis.length > 0) {
-            console.log('FIND',findThis)
-                        
-            const found = recipes.filter((recipe) => {
-                return recipe.name
+        const found = recipes.filter((recipe) => {
+            return recipe.name
                 .toLowerCase()
                 .includes(findThis.toLowerCase())
-            })
-            setFoundRecipes(found);
-
-            
-            console.log('FOUND',found)
-            // setRecipes()
-        }
+        })
+        setFoundRecipes(found);
     }
-    
+
 
     return (
         <div className="container">
@@ -56,11 +46,12 @@ function RecipeList() {
                     </ul>
                 </nav>
             </div>
-            <SearchBox search={search} />
-            
+            <SearchBox filterBySearch={filterBySearch} />
+
+
             <div className="wrapper">
                 <ul role='list'>
-                    {(foundRecipes.length > 0 ? foundRecipes : recipes).map((recipe) => (
+                    {foundRecipes.map((recipe) => (
                         <RecipeListView
                             id={recipe.id}
                             key={recipe.id}

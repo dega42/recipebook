@@ -13,7 +13,7 @@ function RecipeNewForm() {
     const directionRef = useRef(null);
     const ingredientRef = useRef(null);
 
-     async function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         if (!inputs.name.trim()) return
@@ -84,6 +84,7 @@ function RecipeNewForm() {
                         value={inputs.name}
                         //defaultValue={inputs.name}
                         onChange={handleChange}
+                        placeholder='Recipe name'
                     />
                     <textarea
                         name='description'
@@ -91,8 +92,9 @@ function RecipeNewForm() {
                         rows="3"
                         value={inputs.description}
                         //defaultValue={inputs.description}
-                        onChange={handleChange} />
-
+                        onChange={handleChange}
+                        placeholder='Description'
+                    />
                     <div className="form-group">
                         <input
                             type='text'
@@ -113,7 +115,7 @@ function RecipeNewForm() {
 
                     <ul role={'list'}>
                         {ingredientList}
-                    </ul>                    
+                    </ul>
                     <button type="submit" className='btn'>Add recipe</button>
                     <button className="btn" onClick={() => navigate('/')}  >Cancel</button>
                 </form>

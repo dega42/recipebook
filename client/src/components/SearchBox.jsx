@@ -1,8 +1,12 @@
 function SearchBox(props) {
     return (
         <div>
-            <form>
-                <input onChange={props.search} />
+            <form onSubmit={props.filterBySearch}>
+                <input
+                type='text'
+                onChange={props.filterBySearch}
+                placeholder='Search recipe'
+                 />
             </form>
         </div>
     )

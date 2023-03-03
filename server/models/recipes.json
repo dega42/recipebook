@@ -18,7 +18,7 @@
       "2.5 dl szódavíz",
       "0.5 dl napraforgó olaj"
     ],
-    "times": 18
+    "times": 19
   },
   {
     "id": "69a786ef-6fc1-46df-99c4-8fc7261fa7bf",
@@ -84,6 +84,17 @@
       "tojás",
       "kenyér"
     ],
+    "times": 1
+  },
+  {
+    "id": "53ce1f7e-3de8-4345-af0b-417b9aab3a9e",
+    "name": "Recept1",
+    "slug": "recept1",
+    "description": "description",
+    "directions": [
+      "vízbe"
+    ],
+    "ingredients": [],
     "times": 1
   }
 ]
