@@ -41,7 +41,6 @@ function RecipeList() {
                 {/* {message} */}
                 <nav>
                     <ul role='list' className="nav">
-                        <li><Link to="/new-recipe" className="btn">New category</Link></li>
                         <li><Link to="/new-recipe" className="btn">New recipe</Link></li>
                     </ul>
                 </nav>

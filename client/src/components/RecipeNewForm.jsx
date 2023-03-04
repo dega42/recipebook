@@ -40,17 +40,35 @@ function RecipeNewForm() {
         if (!directionRef.current.value) return
         setInputs({ ...inputs, directions: inputs.directions.concat(directionRef.current.value) })
         directionRef.current.value = '';
-
     }
+
+    function removeDirection(e) {
+        e.preventDefault();
+        const id = e.currentTarget.dataset.id;
+        const foundIndex = inputs.directions.findIndex((value, index) => index == id)
+        const list = [...inputs.directions]
+        list.splice(foundIndex, 1)
+        setInputs({ ...inputs, directions: list })
+    }
+
     function addIngredient(e) {
         e.preventDefault();
         if (!ingredientRef.current.value) return
         setInputs({ ...inputs, ingredients: inputs.ingredients.concat(ingredientRef.current.value) })
         ingredientRef.current.value = '';
     }
-
+    
+    function removeIngredient(e) {
+        e.preventDefault();
+        const id = e.currentTarget.dataset.id;
+        const foundIndex = inputs.ingredients.findIndex((value, index) => index == id)
+        const list = [...inputs.ingredients]
+        list.splice(foundIndex, 1)
+        setInputs({ ...inputs, ingredients: list })
+    }
     const directionList = inputs && inputs.directions ? inputs.directions.map((value, index) => (
         <DirectionList
+            removeDirection={removeDirection}
             id={inputs.id}
             key={index}
             name={value}
@@ -59,6 +77,7 @@ function RecipeNewForm() {
 
     const ingredientList = inputs && inputs.ingredients ? inputs.ingredients.map((value, index) => (
         <IngredientList
+            removeIngredient={removeIngredient}
             id={inputs.id}
             key={index}
             name={value}
